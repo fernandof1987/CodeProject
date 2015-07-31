@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 29/07/15
- * Time: 00:00
- */
 
 namespace CodeProject\Repositories;
 
