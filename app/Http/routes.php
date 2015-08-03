@@ -11,12 +11,30 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('client', 'ClientController@index');
-Route::post('client', 'ClientController@store');
-Route::get('client/{id}', 'ClientController@show');
-Route::put('client/{id}', 'ClientController@update');
-Route::delete('client/{id}', 'ClientController@destroy');
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+});
+
+Route::group(['middleware' => 'oauth'], function(){
+
+    Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+
+    Route::group(['prefix' => 'project'], function(){
+
+        Route::resource('', 'ProjectController', ['except' => ['create', 'edit']]);
+
+        Route::get('note', 'ProjectNoteController@index');
+        Route::post('note', 'ProjectNoteController@store');
+        Route::get('note/{id}', 'ProjectNoteController@show');
+        Route::put('note/{id}', 'ProjectNoteController@update');
+        Route::delete('note/{id}', 'ProjectNoteController@destroy');
+
+    });
+
+
+});
