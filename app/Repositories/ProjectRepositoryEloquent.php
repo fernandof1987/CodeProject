@@ -5,6 +5,7 @@ namespace CodeProject\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use CodeProject\Entities\Project;
+use CodeProject\Presenters\ProjectPresenter;
 
 /**
  * Class ProjectRepositoryEloquent
@@ -45,11 +46,16 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
 
         foreach($project->members as $member) {
 
-            if($member->id == $memberId) {
-                return true;
+            if($member->id != $memberId) {
+                continue;
             }
 
-            return false;
+            return true;
         }
+    }
+
+    public function presenter()
+    {
+        return ProjectPresenter::class;
     }
 }
