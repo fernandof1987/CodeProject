@@ -1,0 +1,20 @@
+{
+  "name": "codeproject",
+  "version": "0.0.0",
+  "homepage": "https://github.com/fernandof1987/CodeProject",
+  "authors": [
+    "Fernando"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/bower_components",
+    "test",
+    "tests"
+  ]
+}
