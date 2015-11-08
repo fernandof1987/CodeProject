@@ -7,12 +7,11 @@
 	<title>Laravel</title>
 
 	@if(Config::get('app.debug'))
-		<link href="{{ asset('build/css/vendor/bootstrap.mim.css') }}" rel="stylesheet" />
-		<link href="{{ asset('build/css/vendor/bootstrap-theme.mim.css') }}" rel="stylesheet" />
+		<link href="{{ asset('build\css\vendor/bootstrap.min.css') }}" rel="stylesheet" />
+		<link href="{{ asset('build/css/vendor/bootstrap-theme.min.css') }}" rel="stylesheet" />
 	@else
 		<link href="{{ elixir('css/all.css') }}" rel="stylesheet" />
 	@endif
-
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
