@@ -84,7 +84,7 @@ gulp.task('default', ['clear-build-folder'], function(){
       mix.styles(config.vendor_path_css.concat([config.assets_path + '/css/**/*.css']),
         'public/css/all.css', config.assets_path);
 
-      mix.styles(config.vendor_path_js.concat([config.assets_path + '/css/**/*.js']),
+      mix.styles(config.vendor_path_js.concat([config.assets_path + '/js/**/*.js']),
         'public/js/all.js', config.assets_path);
 
       mix.version(['js/all.js', 'css/all.css']);
