@@ -79,6 +79,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        return $this->repository->delete($id);
+        $this->repository->delete($id);
     }
 }

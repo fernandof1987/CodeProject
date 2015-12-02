@@ -38,7 +38,7 @@ Route::post('oauth/access_token', function() {
 
         Route::post('{id}/file', 'ProjectFileController@store');
 
-    });
+ //   });
 
 
-//});
+});

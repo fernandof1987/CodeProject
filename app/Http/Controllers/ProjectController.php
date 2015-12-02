@@ -6,6 +6,8 @@ use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
 use Illuminate\Http\Request;
 
+use CodeProject\Entities\Project;
+
 class ProjectController extends Controller
 {
     /**
@@ -32,9 +34,10 @@ class ProjectController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        return $this->repository->findWhere(['owner_id' => \Authorizer::getResourceOwnerId()]);
+        //return $this->repository->findWhere(['owner_id' => \Authorizer::getResourceOwnerId()]);
+        return $this->repository->with(['owner', 'client'])->all();
     }
 
     /**
@@ -56,9 +59,11 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+        /*
         if($this->checkProjectPermissions($id) == false) {
             return ['error' => 'Access forbiden'];
         }
+        */
 
         return $this->repository->find($id);
     }
@@ -72,9 +77,11 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
         if($this->checkProjectMember($id) == false) {
             return ['error' => 'Access forbiden'];
         }
+        */
 
         return $this->service->update($request->all(), $id);
     }
